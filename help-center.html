@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Center | GMI Tech - FAQs & Support | Ballari & Bangalore</title>
+  <meta name="description" content="GMI Tech Help Center — find answers to frequently asked questions about our services, pricing, process, and support. Contact us anytime on WhatsApp.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gmitech.in/help-center.html" />
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .page-hero { padding-block-start: calc(var(--section-padding) + 80px); padding-block-end: var(--section-padding); background: linear-gradient(135deg, var(--ghost-white) 60%, hsl(241,77%,95%) 100%); text-align: center; }
+    .page-hero .h1 { font-size: var(--fs-1); margin-bottom: 18px; }
+    .page-hero p { font-size: var(--fs-7); color: var(--cool-gray); max-width: 52ch; margin-inline: auto; }
+    .faq-section { background: var(--white); }
+    .faq-categories { display: grid; gap: 24px; }
+    .faq-cat-title { font-size: var(--fs-4); color: var(--raisin-black-1); font-weight: var(--fw-700); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .faq-cat-title ion-icon { font-size: 28px; color: var(--majorelle-blue); }
+    .faq-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+    .faq-item { background: var(--ghost-white); border-radius: var(--radius-15); overflow: hidden; }
+    .faq-q { width: 100%; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; border: none; background: none; font-family: inherit; font-size: var(--fs-8); font-weight: var(--fw-700); color: var(--raisin-black-1); text-align: left; transition: var(--transition-1); }
+    .faq-q:hover { color: var(--majorelle-blue); }
+    .faq-q ion-icon { font-size: 20px; flex-shrink: 0; transition: var(--transition-1); color: var(--majorelle-blue); }
+    .faq-q.open ion-icon { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 24px 20px; font-size: var(--fs-8); color: var(--cool-gray); line-height: 1.8; border-top: 1px solid var(--gainsboro); padding-top: 16px; }
+    .faq-a.open { display: block; }
+    .contact-support { background: var(--ghost-white); }
+    .support-grid { display: grid; gap: 24px; }
+    .support-card { background: var(--white); border-radius: var(--radius-20); padding: 36px 30px; box-shadow: var(--shadow-3); text-align: center; transition: var(--transition-2); }
+    .support-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-4); }
+    .support-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 20px; }
+    .support-card .h3 { font-size: var(--fs-5); margin-bottom: 10px; }
+    .support-card p { font-size: var(--fs-8); color: var(--cool-gray); margin-bottom: 20px; line-height: 1.7; }
+    .support-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-8); font-weight: var(--fw-700); font-size: var(--fs-9); transition: var(--transition-1); }
+    .btn-green { background: #25D366; color: var(--white); } .btn-green:hover { background: #1ebe5d; }
+    .btn-blue { background: var(--majorelle-blue); color: var(--white); } .btn-blue:hover { background: hsl(241,77%,53%); }
+    .btn-red { background: #EA4335; color: var(--white); } .btn-red:hover { background: #d33426; }
+    /* FOOTER */
+    .footer { background-color: var(--raisin-black-1); color: var(--cool-gray); }
+    .footer-top { padding-block-end: 60px; display: grid; gap: 50px; }
+    .footer-brand-col { display: flex; flex-direction: column; }
+    .footer-logo { font-size: 2.8rem; font-weight: var(--fw-700); color: var(--white); margin-bottom: 16px; display: inline-block; }
+    .footer-logo span { color: var(--majorelle-blue); }
+    .footer-tagline { font-size: var(--fs-8); color: var(--cool-gray); line-height: 1.8; margin-bottom: 28px; }
+    .footer-list-title { color: var(--white); font-size: var(--fs-7); font-weight: var(--fw-700); margin-bottom: 20px; position: relative; padding-bottom: 12px; }
+    .footer-list-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 32px; height: 2px; background: var(--majorelle-blue); border-radius: 2px; }
+    .footer-link { font-size: var(--fs-9); color: var(--cool-gray); display: flex; align-items: center; gap: 8px; margin-bottom: 12px; transition: var(--transition-1); }
+    .footer-link:hover { color: var(--mustard); padding-left: 4px; }
+    .footer-link ion-icon { font-size: 15px; color: var(--majorelle-blue); flex-shrink: 0; }
+    .footer-list { list-style: none; }
+    .footer-social-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+    .footer-social-btn { width: 42px; height: 42px; border-radius: var(--radius-8); display: flex; align-items: center; justify-content: center; font-size: 20px; transition: var(--transition-1); color: var(--white); }
+    .footer-social-btn.whatsapp { background: #25D366; } .footer-social-btn.whatsapp:hover { background: #1ebe5d; transform: translateY(-3px); }
+    .footer-social-btn.gmail { background: #EA4335; } .footer-social-btn.gmail:hover { background: #d33426; transform: translateY(-3px); }
+    .footer-social-btn.phone { background: var(--majorelle-blue); } .footer-social-btn.phone:hover { background: hsl(241,77%,53%); transform: translateY(-3px); }
+    .footer-social-btn.linkedin { background: #0A66C2; } .footer-social-btn.linkedin:hover { background: #0958a8; transform: translateY(-3px); }
+    .footer-social-btn.instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); } .footer-social-btn.instagram:hover { opacity: 0.85; transform: translateY(-3px); }
+    .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+    .contact-icon { width: 36px; height: 36px; border-radius: var(--radius-8); background: hsla(241,77%,63%,0.15); display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--majorelle-blue); flex-shrink: 0; }
+    .contact-label { font-size: 1.15rem; color: var(--cool-gray); opacity: 0.7; margin-bottom: 2px; }
+    .contact-value { font-size: var(--fs-9); color: var(--white); transition: var(--transition-1); }
+    .contact-value:hover { color: var(--mustard); }
+    .footer-divider { height: 1px; background: hsla(0,0%,100%,0.07); }
+    .footer-bottom { color: var(--cool-gray); font-size: var(--fs-9); padding-block: 28px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; }
+    .footer-bottom-left { display: flex; flex-direction: column; gap: 4px; }
+    .copyright { color: var(--cool-gray); font-size: var(--fs-9); }
+    .built-with { font-size: 1.3rem; color: var(--cool-gray); opacity: 0.65; }
+    .built-with span { color: #e25555; }
+    .footer-bottom-list { display: flex; flex-wrap: wrap; gap: 5px 18px; list-style: none; }
+    .footer-bottom-link { color: var(--cool-gray); font-size: var(--fs-9); transition: var(--transition-1); }
+    .footer-bottom-link:hover { color: var(--mustard); }
+    @media (min-width: 768px) { .footer-top { grid-template-columns: 1fr 1fr; } .support-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (min-width: 992px) { .footer-top { grid-template-columns: 1.6fr 1fr 1fr 1.4fr; padding-block: 80px 60px; } }
+  </style>
+</head>
+<body id="top">
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">GMI Tech</a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="wrapper">
+          <a href="#" class="logo">GMI</a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="services.html" class="navbar-link" data-nav-link>Services</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="about.html" class="navbar-link" data-nav-link>About us</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="portfolio.html" class="navbar-link" data-nav-link>Portfolio</a>
+          </li>
+            <li class="navbar-item"><a href="careers.html" class="navbar-link" data-nav-link>Careers</a></li>
+          
+
+          <li class="navbar-item">
+            <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+ 
+   <a href="https://wa.me/919036717885" class="lets-talk-nav">
+  Let's Talk
+</a>
+
+<style>
+  .simple-talk-link {
+    /* Bold and Blue by default */
+    font-weight: 700;
+    color: var(--majorelle-blue); /* Uses your GMI Tech blue */
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: color 0.3s ease; /* Smooth color change */
+    display: inline-block;
+  }
+
+  .simple-talk-link:hover {
+    /* Becomes Yellow on cursor hover */
+    color: #ffcc00; /* Professional yellow/mustard color */
+  }
+</style>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+  <main>
+    <article>
+      <section class="page-hero" aria-label="help center hero">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Support</p>
+          <h1 class="h1">Help <span class="has-before">Center</span></h1>
+          <p>Have a question? Find answers to the most common questions below, or reach us directly on WhatsApp.</p>
+        </div>
+      </section>
+
+      <section class="section faq-section" aria-label="faqs">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">FAQs</p>
+          <h2 class="h2 section-title text-center">Frequently Asked <span class="has-before">Questions</span></h2>
+          <div class="faq-categories">
+
+            <div>
+              <p class="faq-cat-title"><ion-icon name="code-slash-sharp" aria-hidden="true"></ion-icon>Services &amp; Process</p>
+              <div class="faq-list">
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">What services does GMI Tech offer?<ion-icon name="add-outline" aria-hidden="true"></ion-icon></button>
+                  <div class="faq-a">GMI Tech offers website design, web &amp; app development, AI automation, WhatsApp automation, email marketing, custom software, school management systems, hospital software, restaurant &amp; hotel POS, billing software, and SEO &amp; digital marketing.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">How long does a project take to complete?<ion-icon name="add-outline" aria-hidden="true"></ion-icon></button>
+                  <div class="faq-a">It depends on the project complexity. A simple website takes 5–10 days. A full web app or management system typically takes 4–12 weeks. We give you a clear timeline during the discovery call.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">Do you work with startups and small businesses?<ion-icon name="add-outline" aria-hidden="true"></ion-icon></button>
+                  <div class="faq-a">Absolutely. GMI Tech was built specifically to empower startups and SMEs with enterprise-grade digital solutions at affordable prices. Most of our clients are early-stage startups and growing businesses.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">Can I see your previous work?<ion-icon name="add-outline" aria-hidden="true"></ion-icon></button>
+                  <div class="faq-a">Yes! Visit our <a href="./portfolio.html" style="color:var(--majorelle-blue);font-weight:700">Portfolio page</a> to see the range of projects we've delivered — from enterprise software to school management systems and restaurant POS.</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p class="faq-cat-title"><ion-icon name="cash-sharp" aria-hidden="true"></ion-icon>Pricing &amp; Payment</p>
+              <div class="faq-list">
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">How much does a website cost?<ion-icon name="add-outline" aria-hidden="true"></ion-icon></button>
+                  <div class="faq-a">Our pricing depends on the scope of the project. A basic business website starts from ₹5,000. A full web application or custom software is priced based on features and complexity. Contact us for a free quote.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">What are your payment terms?<ion-icon name="add-outline" aria-hidden="true"></ion-icon></button>
+                  <div class="faq-a">We typically work with a 50% advance before starting and 50% on project completion. For larger projects, we offer milestone-based payments. We accept UPI, bank transfer, and other methods.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">Do you offer EMI or installment options?<ion-icon name="add-outline" aria-hidden="true"></ion-icon></button>
+                  <div class="faq-a">For larger projects, we can discuss flexible payment plans. Please contact us on WhatsApp to discuss options that work for your budget.</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p class="faq-cat-title"><ion-icon name="headset-sharp" aria-hidden="true"></ion-icon>Support &amp; Maintenance</p>
+              <div class="faq-list">
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">Do you provide support after project delivery?<ion-icon name="add-outline" aria-hidden="true"></ion-icon></button>
+                  <div class="faq-a">Yes. All projects include a free support period after delivery. We also offer monthly maintenance plans to keep your software secure, updated, and running smoothly.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">What if I find a bug after launch?<ion-icon name="add-outline" aria-hidden="true"></ion-icon></button>
+                  <div class="faq-a">Any bugs found within the warranty period are fixed for free. Just message us on WhatsApp and we'll resolve it quickly — usually within 24 hours.</div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" aria-expanded="false">How do I contact support?<ion-icon name="add-outline" aria-hidden="true"></ion-icon></button>
+                  <div class="faq-a">The fastest way is WhatsApp at <a href="https://wa.me/919036717885" style="color:var(--majorelle-blue);font-weight:700">+91 90367 17885</a>. You can also email us at <a href="mailto:gmitech@zohomail.in" style="color:var(--majorelle-blue);font-weight:700">gmitech@zohomail.in</a>.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-support" aria-label="contact support">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Still Need Help?</p>
+          <h2 class="h2 section-title text-center">Reach Us <span class="has-before">Directly</span></h2>
+          <div class="support-grid">
+            <div class="support-card">
+              <div class="support-icon" style="background:#25D36620"><ion-icon name="logo-whatsapp" style="color:#25D366;font-size:32px" aria-hidden="true"></ion-icon></div>
+              <h3 class="h3">WhatsApp</h3>
+              <p>Fastest response. Chat with us instantly on WhatsApp — we reply within minutes during business hours.</p>
+              <a href="https://wa.me/919036717885?text=Hi%20GMI%20Tech!%20I%20need%20help." target="_blank" rel="noopener" class="support-btn btn-green"><ion-icon name="logo-whatsapp" aria-hidden="true"></ion-icon>Chat Now</a>
+            </div>
+            <div class="support-card">
+              <div class="support-icon" style="background:hsla(241,77%,63%,0.12)"><ion-icon name="call-sharp" style="color:var(--majorelle-blue);font-size:32px" aria-hidden="true"></ion-icon></div>
+              <h3 class="h3">Call Us</h3>
+              <p>Prefer a phone call? Call us directly at +91 90367 17885 during business hours (Mon–Sat, 9AM–7PM).</p>
+              <a href="tel:+919036717885" class="support-btn btn-blue"><ion-icon name="call-sharp" aria-hidden="true"></ion-icon>Call Now</a>
+            </div>
+            <div class="support-card">
+              <div class="support-icon" style="background:#EA433520"><ion-icon name="mail-sharp" style="color:#EA4335;font-size:32px" aria-hidden="true"></ion-icon></div>
+              <h3 class="h3">Email Us</h3>
+              <p>For detailed queries, project briefs, or proposals — send us an email and we'll respond within 24 hours.</p>
+              <a href="mailto:gmitech@zohomail.in" class="support-btn btn-red"><ion-icon name="mail-sharp" aria-hidden="true"></ion-icon>Send Email</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+ <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top section">
+
+        <!-- Brand Col -->
+        <div class="footer-brand-col">
+          <a href="./index.html" class="footer-logo">GMI <span>Tech</span></a>
+          <p class="footer-tagline">A leading software development company based in Ballari &amp; Bangalore, specializing in web development, mobile apps, AI automation, and custom business solutions.</p>
+          <div class="footer-social-row">
+            <a href="https://wa.me/919036717885" class="footer-social-btn whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+            <a href="mailto:gmitech@zohomail.in" class="footer-social-btn gmail" aria-label="Gmail">
+              <ion-icon name="mail-sharp"></ion-icon>
+            </a>
+            <a href="tel:+919036717885" class="footer-social-btn phone" aria-label="Phone">
+              <ion-icon name="call-sharp"></ion-icon>
+            </a>
+            <a href="https://linkedin.com" class="footer-social-btn linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a href="https://instagram.com" class="footer-social-btn instagram" aria-label="Instagram" target="_blank" rel="noopener">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </div>
+        </div>
+
+        <!-- Useful Links -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Useful Links</p></li>
+          <li><a href="./index.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Home</a></li>
+          <li><a href="./about.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> About Us</a></li>
+          <li><a href="./services.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Services</a></li>
+          <li><a href="./portfolio.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Portfolio</a></li>
+          <li><a href="./careers.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Careers</a></li>
+          <li><a href="./blogs.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Blogs</a></li>
+          <li><a href="#contact" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Contact Us</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Terms &amp; Services</a></li>
+        </ul>
+
+        <!-- Resources -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Resources</p></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> How it Works</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Help Center</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Partners</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Suggestions</a></li>
+          <li><a href="./blogs.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Blog</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Newsletters</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Create</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Explore</a></li>
+        </ul>
+
+        <!-- Contact -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Contact</p></li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="call-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Phone</p>
+                <a href="tel:+919036717885" class="contact-value">+91 90367 17885</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="mail-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Email</p>
+                <a href="mailto:gmitech@zohomail.in" class="contact-value">gmitech@zohomail.in</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="location-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Ballari Office</p>
+                <span class="contact-value" style="font-size:1.3rem">Ballari, Karnataka, India</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="location-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Bangalore Office</p>
+                <span class="contact-value" style="font-size:1.3rem">Banshankari 1st Stage, Bangalore</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <p class="copyright">&copy; 2026 GMI Tech — All Rights Reserved.</p>
+          <p class="built-with">Built with <span>&#10084;</span> by GMI Tech Ballari</p>
+        </div>
+        <ul class="footer-bottom-list">
+          <li><a href="#" class="footer-bottom-link">Terms &amp; Conditions</a></li>
+          <li><a href="#" class="footer-bottom-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-bottom-link">Login / Signup</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+  <a href="#top" class="back-top-btn has-after" aria-label="back to top" data-back-top-btn><ion-icon name="arrow-up" aria-hidden="true"></ion-icon></a>
+  <script src="./assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const isOpen = btn.classList.contains('open');
+        document.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
+        document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+        if (!isOpen) { btn.classList.add('open'); btn.setAttribute('aria-expanded','true'); answer.classList.add('open'); }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers at GMI Tech | Join Our Team | Ballari & Bangalore</title>
+  <meta name="title" content="Careers at GMI Tech | Join Our Team | Ballari & Bangalore" />
+  <meta name="description" content="Join GMI Tech — a startup founded by S Mohammed Ruhan. We're hiring passionate developers, designers, and marketers to build the next generation of digital solutions from Ballari & Bangalore.">
+  <meta name="keywords" content="GMI Tech Careers, Jobs in Ballari, Software Jobs Bangalore, Tech Internship India, Web Developer Jobs, GMI Tech Hiring, S Mohammed Ruhan">
+  <meta name="author" content="S Mohammed Ruhan - Founder, GMI Tech" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gmitech.in/careers.html" />
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .page-hero {
+      padding-block-start: calc(var(--section-padding) + 80px);
+      padding-block-end: var(--section-padding);
+      background: linear-gradient(135deg, var(--raisin-black-1) 0%, hsl(241,60%,18%) 100%);
+      text-align: center;
+    }
+    .page-hero .h1 { color: var(--white); font-size: var(--fs-1); margin-bottom: 20px; }
+    .page-hero .section-subtitle { color: var(--mustard); }
+    .page-hero .hero-desc { font-size: var(--fs-7); color: var(--cool-gray); max-width: 55ch; margin-inline: auto; }
+
+    /* WHY JOIN */
+    .why-join { background: var(--ghost-white); }
+    .why-grid { display: grid; gap: 30px; }
+    .why-card {
+      background: var(--white); border-radius: var(--radius-20);
+      padding: 40px 30px; box-shadow: var(--shadow-3);
+      transition: var(--transition-2);
+      border-block-end: 3px solid transparent;
+    }
+    .why-card:hover { border-color: var(--majorelle-blue); transform: translateY(-6px); box-shadow: var(--shadow-4); }
+    .why-card .card-icon {
+      width: 60px; height: 60px; border-radius: var(--radius-10);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px; margin-bottom: 20px;
+    }
+    .why-card .h3 { font-size: var(--fs-5); margin-bottom: 12px; }
+    .why-card p { font-size: var(--fs-8); color: var(--cool-gray); line-height: 1.8; }
+
+    /* CULTURE */
+    .culture-section { background: var(--white); }
+    .culture-grid { display: grid; gap: 30px; }
+    .culture-card {
+      display: flex; gap: 24px; align-items: flex-start;
+      padding: 32px; border-radius: var(--radius-15);
+      background: var(--ghost-white); transition: var(--transition-1);
+    }
+    .culture-card:hover { background: linear-gradient(135deg, hsla(241,77%,63%,0.06), var(--ghost-white)); }
+    .culture-card .culture-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; flex-shrink: 0;
+    }
+    .culture-card .h3 { font-size: var(--fs-6); margin-bottom: 8px; }
+    .culture-card p { font-size: var(--fs-8); color: var(--cool-gray); line-height: 1.8; }
+
+    /* OPENINGS */
+    .openings-section { background: var(--ghost-white); }
+    .openings-tabs { display: flex; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+    .tab-btn {
+      padding: 12px 28px; border-radius: var(--radius-10);
+      font-size: var(--fs-8); font-weight: var(--fw-700);
+      cursor: pointer; border: none; font-family: inherit;
+      transition: var(--transition-1); background: var(--white);
+      color: var(--cool-gray); box-shadow: var(--shadow-3);
+    }
+    .tab-btn.active { background: var(--majorelle-blue); color: var(--white); }
+    .openings-panel { display: none; }
+    .openings-panel.active { display: block; }
+    .internship-card {
+      background: var(--white); border-radius: var(--radius-20);
+      padding: 50px 40px; box-shadow: var(--shadow-3); text-align: center;
+      max-width: 600px; margin-inline: auto;
+    }
+    .internship-card .internship-icon {
+      width: 90px; height: 90px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--majorelle-blue), hsl(241,77%,73%));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 42px; color: var(--white); margin: 0 auto 28px;
+    }
+    .internship-card .h3 { font-size: var(--fs-3); margin-bottom: 16px; }
+    .internship-card p { font-size: var(--fs-8); color: var(--cool-gray); line-height: 1.9; margin-bottom: 32px; }
+    .fulltime-list { display: grid; gap: 20px; }
+    .job-card {
+      background: var(--white); border-radius: var(--radius-15);
+      padding: 28px 30px; box-shadow: var(--shadow-3);
+      display: flex; flex-wrap: wrap; gap: 16px;
+      align-items: center; justify-content: space-between;
+      transition: var(--transition-1);
+    }
+    .job-card:hover { box-shadow: var(--shadow-4); }
+    .job-info .job-title { font-size: var(--fs-5); font-weight: var(--fw-700); color: var(--raisin-black-1); margin-bottom: 6px; }
+    .job-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+    .job-badge {
+      background: var(--ghost-white); color: var(--cool-gray);
+      font-size: var(--fs-9); padding: 4px 14px; border-radius: 20px;
+    }
+    .job-badge.type { background: hsla(241,77%,63%,0.12); color: var(--majorelle-blue); font-weight: var(--fw-700); }
+    .coming-soon-note { text-align: center; padding: 50px 30px; color: var(--cool-gray); font-size: var(--fs-7); }
+    .coming-soon-note ion-icon { font-size: 48px; color: var(--majorelle-blue); display: block; margin: 0 auto 16px; }
+
+    @media (min-width: 768px) {
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .culture-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 992px) {
+      .why-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body id="top">
+
+   <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">GMI Tech</a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="wrapper">
+          <a href="#" class="logo">GMI</a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="services.html" class="navbar-link" data-nav-link>Services</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="about.html" class="navbar-link" data-nav-link>About us</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="portfolio.html" class="navbar-link" data-nav-link>Portfolio</a>
+          </li>
+            <li class="navbar-item"><a href="careers.html" class="navbar-link" data-nav-link>Careers</a></li>
+          
+
+          <li class="navbar-item">
+            <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+ 
+   <a href="https://wa.me/919036717885" class="lets-talk-nav">
+  Let's Talk
+</a>
+
+<style>
+  .simple-talk-link {
+    /* Bold and Blue by default */
+    font-weight: 700;
+    color: var(--majorelle-blue); /* Uses your GMI Tech blue */
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: color 0.3s ease; /* Smooth color change */
+    display: inline-block;
+  }
+
+  .simple-talk-link:hover {
+    /* Becomes Yellow on cursor hover */
+    color: #ffcc00; /* Professional yellow/mustard color */
+  }
+</style>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+  <main>
+    <article>
+
+      <!-- PAGE HERO -->
+      <section class="page-hero" aria-label="careers hero">
+        <div class="container">
+          <p class="section-subtitle has-before text-center" style="color:var(--mustard)">Careers</p>
+          <h1 class="h1">Build The Future With <span class="has-before">GMI Tech</span></h1>
+          <p class="hero-desc">Join a team that values innovation, ownership, and impact. We're building the next generation of digital solutions.</p>
+        </div>
+      </section>
+
+      <!-- WHY JOIN -->
+      <section class="section why-join" aria-label="why join us">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Why Join Us</p>
+          <h2 class="h2 section-title text-center">Why <span class="has-before">GMI Tech?</span></h2>
+          <ul class="why-grid">
+            <li>
+              <div class="why-card">
+                <div class="card-icon" style="background:hsla(241,77%,63%,0.12)">
+                  <ion-icon name="bulb-sharp" style="color:hsl(241,77%,63%)" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="h3">Innovation Driven Culture</h3>
+                <p>We push boundaries daily. Every idea matters and every person drives impact.</p>
+              </div>
+            </li>
+            <li>
+              <div class="why-card">
+                <div class="card-icon" style="background:hsla(174,77%,50%,0.12)">
+                  <ion-icon name="trending-up-sharp" style="color:hsl(174,77%,38%)" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="h3">Real Ownership &amp; Growth</h3>
+                <p>Take ownership of your work and grow with responsibility, not just titles.</p>
+              </div>
+            </li>
+            <li>
+              <div class="why-card">
+                <div class="card-icon" style="background:hsla(52,98%,50%,0.15)">
+                  <ion-icon name="laptop-sharp" style="color:hsl(52,80%,38%)" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="h3">Flexible &amp; Remote Friendly</h3>
+                <p>Work from anywhere. We trust results, not hours spent at a desk.</p>
+              </div>
+            </li>
+            <li>
+              <div class="why-card">
+                <div class="card-icon" style="background:hsla(343,98%,60%,0.12)">
+                  <ion-icon name="rocket-sharp" style="color:hsl(343,98%,50%)" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="h3">Meaningful Projects</h3>
+                <p>Build real products for real businesses — not throwaway prototypes.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CULTURE -->
+      <section class="section culture-section" aria-label="work culture">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Culture</p>
+          <h2 class="h2 section-title text-center">Why Work <span class="has-before">Here?</span></h2>
+          <ul class="culture-grid">
+            <li>
+              <div class="culture-card">
+                <div class="culture-icon" style="background:hsla(241,77%,63%,0.12)">
+                  <ion-icon name="book-sharp" style="color:hsl(241,77%,63%)" aria-hidden="true"></ion-icon>
+                </div>
+                <div>
+                  <h3 class="h3">Learning Culture</h3>
+                  <p>Continuous skill building through real projects, mentorship, and access to cutting-edge tools.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="culture-card">
+                <div class="culture-icon" style="background:hsla(174,77%,50%,0.12)">
+                  <ion-icon name="trophy-sharp" style="color:hsl(174,77%,38%)" aria-hidden="true"></ion-icon>
+                </div>
+                <div>
+                  <h3 class="h3">Performance Driven</h3>
+                  <p>We reward results and initiative. Your growth is directly tied to your impact.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="culture-card">
+                <div class="culture-icon" style="background:hsla(52,98%,50%,0.15)">
+                  <ion-icon name="chatbubbles-sharp" style="color:hsl(52,80%,38%)" aria-hidden="true"></ion-icon>
+                </div>
+                <div>
+                  <h3 class="h3">Transparent Leadership</h3>
+                  <p>Open communication, clear goals, and honest feedback — no corporate politics.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="culture-card">
+                <div class="culture-icon" style="background:hsla(343,98%,60%,0.12)">
+                  <ion-icon name="flash-sharp" style="color:hsl(343,98%,50%)" aria-hidden="true"></ion-icon>
+                </div>
+                <div>
+                  <h3 class="h3">Startup Agility</h3>
+                  <p>Move fast, ship often, and see your work make a difference from day one.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- OPENINGS -->
+      <section class="section openings-section" aria-label="job openings">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Openings</p>
+          <h2 class="h2 section-title text-center">Explore <span class="has-before">Opportunities</span></h2>
+          <div class="openings-tabs">
+            <button class="tab-btn active" data-tab="internships">Internships</button>
+            <button class="tab-btn" data-tab="fulltime">Full Time</button>
+          </div>
+          <div class="openings-panel active" id="internships">
+            <div class="internship-card">
+              <div class="internship-icon">
+                <ion-icon name="school-sharp" aria-hidden="true"></ion-icon>
+              </div>
+              <h3 class="h3">Internship Application</h3>
+              <p>We welcome passionate students and freshers to grow with us. Click the button below to open the internship application form.</p>
+              <a href="https://forms.gle/YourInternshipFormLink" target="_blank" rel="noopener noreferrer" class="btn btn-primary has-before has-after" style="margin-inline:auto">Apply for Internship</a>
+            </div>
+          </div>
+          <div class="openings-panel" id="fulltime">
+            <div class="coming-soon-note">
+              <ion-icon name="construct-sharp" aria-hidden="true"></ion-icon>
+              <p>Full-time openings will be posted here soon. In the meantime, send your resume to <a href="mailto:gmitech@zohomail.in" style="color:var(--majorelle-blue);font-weight:700">gmitech@zohomail.in</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top section">
+
+        <!-- Brand Col -->
+        <div class="footer-brand-col">
+          <a href="./index.html" class="footer-logo">GMI <span>Tech</span></a>
+          <p class="footer-tagline">A leading software development company based in Ballari &amp; Bangalore, specializing in web development, mobile apps, AI automation, and custom business solutions.</p>
+          <div class="footer-social-row">
+            <a href="https://wa.me/919036717885" class="footer-social-btn whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+            <a href="mailto:gmitech@zohomail.in" class="footer-social-btn gmail" aria-label="Gmail">
+              <ion-icon name="mail-sharp"></ion-icon>
+            </a>
+            <a href="tel:+919036717885" class="footer-social-btn phone" aria-label="Phone">
+              <ion-icon name="call-sharp"></ion-icon>
+            </a>
+            <a href="https://linkedin.com" class="footer-social-btn linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a href="https://instagram.com" class="footer-social-btn instagram" aria-label="Instagram" target="_blank" rel="noopener">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </div>
+        </div>
+
+        <!-- Useful Links -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Useful Links</p></li>
+          <li><a href="./index.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Home</a></li>
+          <li><a href="./about.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> About Us</a></li>
+          <li><a href="./services.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Services</a></li>
+          <li><a href="./portfolio.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Portfolio</a></li>
+          <li><a href="./careers.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Careers</a></li>
+          
+          <li><a href="#contact" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Contact Us</a></li>
+          
+        </ul>
+
+        <!-- Resources -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Resources</p></li>
+          <li><a href="how-it-works.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> How it Works</a></li>
+          <li><a href="help-center.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Help Center</a></li>
+          <li><a href="privacy-policy.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Privacy Policy</a></li>
+          <li><a href="login.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Login</a></li>
+          <li><a href="blogs.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Blogs</a></li>
+          <li><a href="terms.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Terms & Conditions</a></li>
+          </ul>
+
+
+        <!-- Contact -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Contact</p></li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="call-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Phone</p>
+                <a href="tel:+919036717885" class="contact-value">+91 90367 17885</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="mail-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Email</p>
+                <a href="mailto:gmitech@zohomail.in" class="contact-value">gmitech@zohomail.in</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="location-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Ballari Office</p>
+                <span class="contact-value" style="font-size:1.3rem">Ballari, Karnataka, India</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="location-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Bangalore Office</p>
+                <span class="contact-value" style="font-size:1.3rem">Banshankari 1st Stage, Bangalore</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <p class="copyright">&copy; 2026 GMI Tech — All Rights Reserved.</p>
+          <p class="built-with">Built with <span>&#10084;</span> by GMI Tech Ballari</p>
+        </div>
+        <!-- <ul class="footer-bottom-list">
+          <li><a href="#" class="footer-bottom-link">Terms &amp; Conditions</a></li>
+          <li><a href="#" class="footer-bottom-link">Privacy Policy</a></li>
+          <li><a href="login.html" class="footer-bottom-link">Login / Signup</a></li>
+        </ul> -->
+      </div>
+
+    </div>
+  </footer>
+
+
+
+  <a href="#top" class="back-top-btn has-after" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <script src="./assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.openings-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

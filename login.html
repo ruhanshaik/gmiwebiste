@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Signup | GMI Tech Client Portal</title>
+  <meta name="description" content="Login or signup to the GMI Tech client portal to track your project progress, access deliverables, and communicate with our team.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .login-page {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      background: linear-gradient(135deg, var(--ghost-white) 0%, hsl(241,77%,96%) 100%);
+    }
+    .login-header {
+      padding: 24px 0; background: var(--white); box-shadow: var(--shadow-1);
+    }
+    .login-header .container { display: flex; align-items: center; justify-content: space-between; }
+    .login-main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 16px; }
+    .login-card {
+      background: var(--white); border-radius: var(--radius-20);
+      box-shadow: var(--shadow-4); width: 100%; max-width: 460px;
+      padding: 48px 44px; position: relative; overflow: hidden;
+    }
+    .login-card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0;
+      height: 4px; background: linear-gradient(90deg, var(--majorelle-blue), hsl(241,77%,73%), var(--mustard));
+    }
+    .login-logo { text-align: center; margin-bottom: 10px; }
+    .login-logo-text { font-size: 3rem; font-weight: var(--fw-700); color: var(--raisin-black-1); }
+    .login-logo-text span { color: var(--majorelle-blue); }
+    .login-title { font-size: var(--fs-4); color: var(--raisin-black-1); font-weight: var(--fw-700); text-align: center; margin-bottom: 6px; }
+    .login-sub { font-size: var(--fs-9); color: var(--cool-gray); text-align: center; margin-bottom: 32px; }
+    .tab-switch { display: flex; background: var(--ghost-white); border-radius: var(--radius-10); padding: 4px; margin-bottom: 28px; gap: 4px; }
+    .tab-sw-btn { flex: 1; padding: 11px; border: none; border-radius: var(--radius-8); font-family: inherit; font-size: var(--fs-9); font-weight: var(--fw-700); cursor: pointer; background: transparent; color: var(--cool-gray); transition: var(--transition-1); }
+    .tab-sw-btn.active { background: var(--white); color: var(--majorelle-blue); box-shadow: var(--shadow-3); }
+    .form-panel { display: none; }
+    .form-panel.active { display: block; }
+    .form-field { margin-bottom: 18px; }
+    .form-label { display: block; font-size: var(--fs-9); font-weight: var(--fw-700); color: var(--raisin-black-1); margin-bottom: 7px; }
+    .form-input {
+      width: 100%; padding: 13px 16px;
+      border: 1.5px solid var(--gainsboro); border-radius: var(--radius-8);
+      font-family: inherit; font-size: var(--fs-9); color: var(--raisin-black-1);
+      background: var(--ghost-white); transition: var(--transition-1); outline: none;
+    }
+    .form-input:focus { border-color: var(--majorelle-blue); background: var(--white); box-shadow: 0 0 0 3px hsla(241,77%,63%,0.12); }
+    .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .forgot-link { font-size: 1.3rem; color: var(--majorelle-blue); float: right; margin-top: -12px; margin-bottom: 18px; transition: var(--transition-1); }
+    .forgot-link:hover { color: var(--raisin-black-1); }
+    .submit-btn { width: 100%; height: 52px; background: var(--majorelle-blue); color: var(--white); border: none; border-radius: var(--radius-10); font-family: inherit; font-size: var(--fs-8); font-weight: var(--fw-700); cursor: pointer; transition: var(--transition-1); display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .submit-btn:hover { background: hsl(241,77%,53%); }
+    .submit-btn ion-icon { font-size: 20px; }
+    .divider { display: flex; align-items: center; gap: 14px; margin: 24px 0; }
+    .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--gainsboro); }
+    .divider span { font-size: 1.3rem; color: var(--cool-gray); }
+    .wa-login { width: 100%; height: 52px; background: #25D366; color: var(--white); border: none; border-radius: var(--radius-10); font-family: inherit; font-size: var(--fs-8); font-weight: var(--fw-700); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: var(--transition-1); text-decoration: none; }
+    .wa-login:hover { background: #1ebe5d; }
+    .wa-login ion-icon { font-size: 22px; }
+    .login-footer-note { text-align: center; font-size: 1.3rem; color: var(--cool-gray); margin-top: 24px; }
+    .login-footer-note a { color: var(--majorelle-blue); font-weight: var(--fw-700); }
+    .login-footer { background: var(--raisin-black-1); padding: 20px 0; text-align: center; }
+    .login-footer p { font-size: 1.3rem; color: var(--cool-gray); }
+    .login-footer a { color: var(--cool-gray); transition: var(--transition-1); }
+    .login-footer a:hover { color: var(--mustard); }
+    .back-home { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-9); color: var(--cool-gray); transition: var(--transition-1); }
+    .back-home:hover { color: var(--majorelle-blue); }
+    .back-home ion-icon { font-size: 18px; }
+    .coming-soon-badge { display: inline-flex; align-items: center; gap: 6px; background: hsla(52,98%,60%,0.15); color: hsl(47,80%,36%); font-size: 1.2rem; font-weight: var(--fw-700); padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <div class="login-page">
+
+    <header class="login-header">
+      <div class="container">
+        <a href="./index.html" style="font-size:2.6rem;font-weight:700;color:var(--raisin-black-1)">GMI <span style="color:var(--majorelle-blue)">Tech</span></a>
+        <a href="./index.html" class="back-home"><ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon> Back to Home</a>
+      </div>
+    </header>
+
+    <main class="login-main">
+      <div class="login-card">
+        <div class="login-logo">
+          <p class="login-logo-text">GMI <span>Tech</span></p>
+        </div>
+        <h1 class="login-title">Client Portal</h1>
+        <p class="login-sub">Track your project, access files, and communicate with our team.</p>
+
+        <div class="tab-switch">
+          <button class="tab-sw-btn active" data-tab="login">Login</button>
+          <button class="tab-sw-btn" data-tab="signup">Sign Up</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div class="form-panel active" id="login">
+          <div class="coming-soon-badge"><ion-icon name="construct-sharp" aria-hidden="true"></ion-icon>Portal Coming Soon</div>
+          <div class="form-field">
+            <label class="form-label" for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-input" placeholder="your@email.com">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="login-pass">Password</label>
+            <input type="password" id="login-pass" class="form-input" placeholder="Enter your password">
+          </div>
+          <a href="#" class="forgot-link">Forgot password?</a>
+          <button class="submit-btn" onclick="alert('Client portal is coming soon! Contact us on WhatsApp for project updates.')">
+            <ion-icon name="log-in-sharp" aria-hidden="true"></ion-icon> Login to Portal
+          </button>
+          <div class="divider"><span>or</span></div>
+          <a href="https://wa.me/919036717885?text=Hi%20GMI%20Tech!%20I%20want%20to%20check%20my%20project%20status." target="_blank" rel="noopener" class="wa-login">
+            <ion-icon name="logo-whatsapp" aria-hidden="true"></ion-icon> Contact on WhatsApp Instead
+          </a>
+          <p class="login-footer-note">New client? <a href="#" onclick="document.querySelector('[data-tab=signup]').click();return false;">Sign up here</a></p>
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <div class="form-panel" id="signup">
+          <div class="coming-soon-badge"><ion-icon name="construct-sharp" aria-hidden="true"></ion-icon>Portal Coming Soon</div>
+          <div class="input-row">
+            <div class="form-field">
+              <label class="form-label" for="su-fname">First Name</label>
+              <input type="text" id="su-fname" class="form-input" placeholder="First name">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="su-lname">Last Name</label>
+              <input type="text" id="su-lname" class="form-input" placeholder="Last name">
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="su-email">Email Address</label>
+            <input type="email" id="su-email" class="form-input" placeholder="your@email.com">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="su-phone">Phone Number</label>
+            <input type="tel" id="su-phone" class="form-input" placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="su-pass">Password</label>
+            <input type="password" id="su-pass" class="form-input" placeholder="Create a password">
+          </div>
+          <button class="submit-btn" onclick="alert('Client portal is coming soon! Contact us on WhatsApp to get started.')">
+            <ion-icon name="person-add-sharp" aria-hidden="true"></ion-icon> Create Account
+          </button>
+          <div class="divider"><span>or</span></div>
+          <a href="https://wa.me/919036717885?text=Hi%20GMI%20Tech!%20I%20want%20to%20start%20a%20new%20project." target="_blank" rel="noopener" class="wa-login">
+            <ion-icon name="logo-whatsapp" aria-hidden="true"></ion-icon> Start a Project on WhatsApp
+          </a>
+          <p class="login-footer-note">Already have an account? <a href="#" onclick="document.querySelector('[data-tab=login]').click();return false;">Login here</a></p>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="login-footer">
+      <p>&copy; 2026 GMI Tech &mdash; All Rights Reserved &nbsp;|&nbsp; <a href="./terms.html">Terms</a> &nbsp;|&nbsp; <a href="./privacy.html">Privacy</a> &nbsp;|&nbsp; Built with &#10084; by GMI Tech Ballari</p>
+    </footer>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    document.querySelectorAll('.tab-sw-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-sw-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

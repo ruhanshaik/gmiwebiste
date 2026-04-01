@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About GMI Tech | Engineering Digital Excellence | Ballari & Bangalore</title>
+  <meta name="title" content="About GMI Tech | Engineering Digital Excellence | Ballari & Bangalore" />
+  <meta name="description" content="Learn about GMI Tech — a full-service technology company founded by S Mohammed Ruhan, empowering startups and SMEs with scalable, secure digital solutions from Ballari & Bangalore.">
+  <meta name="keywords" content="About GMI Tech, S Mohammed Ruhan, Software Company Ballari, Tech Startup Bangalore, Digital Transformation, GMI Tech founder">
+  <meta name="author" content="S Mohammed Ruhan - Founder, GMI Tech" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gmitech.in/about.html" />
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ---- PAGE HERO ---- */
+    .page-hero {
+      padding-block-start: calc(var(--section-padding) + 80px);
+      padding-block-end: var(--section-padding);
+      background: linear-gradient(135deg, var(--ghost-white) 60%, hsl(241,77%,95%) 100%);
+      text-align: center;
+    }
+    .page-hero .section-subtitle { justify-content: center; display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+    .page-hero .h1 { font-size: var(--fs-1); margin-bottom: 20px; }
+    .page-hero .hero-desc { font-size: var(--fs-7); color: var(--cool-gray); max-width: 55ch; margin-inline: auto; }
+
+    /* ---- WHO WE ARE ---- */
+    .who-we-are { background: var(--white); }
+    .who-we-are .container { display: grid; gap: 60px; }
+    .who-we-are .content-block .h2 { margin-bottom: 24px; }
+    .who-we-are .content-block p { font-size: var(--fs-7); color: var(--cool-gray); margin-bottom: 18px; line-height: 1.9; }
+    .who-we-are .content-block .founder-note {
+      display: flex; align-items: center; gap: 18px;
+      background: var(--ghost-white); border-radius: var(--radius-15);
+      padding: 24px 28px; margin-top: 30px;
+      border-left: 4px solid var(--majorelle-blue);
+    }
+    .founder-note .founder-icon {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--majorelle-blue);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-size: 26px; flex-shrink: 0;
+    }
+    .founder-note .founder-text strong { color: var(--raisin-black-1); font-size: var(--fs-8); display: block; margin-bottom: 4px; }
+    .founder-note .founder-text span { font-size: var(--fs-9); color: var(--cool-gray); }
+    .who-we-are .visual-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .visual-card {
+      border-radius: var(--radius-15); overflow: hidden; position: relative;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--majorelle-blue), hsl(241,77%,73%));
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: var(--white); padding: 24px; text-align: center;
+    }
+    .visual-card.alt { background: linear-gradient(135deg, hsl(188,64%,50%), hsl(188,64%,70%)); }
+    .visual-card.accent { background: linear-gradient(135deg, hsl(47,100%,60%), hsl(47,100%,75%)); color: var(--raisin-black-1); }
+    .visual-card.dark { background: var(--raisin-black-1); }
+    .visual-card ion-icon { font-size: 48px; margin-bottom: 12px; }
+    .visual-card .vc-label { font-size: var(--fs-8); font-weight: var(--fw-700); }
+    .visual-card .vc-sub { font-size: var(--fs-9); opacity: 0.8; margin-top: 4px; }
+
+    /* ---- MVV ---- */
+    .mvv-section { background: var(--ghost-white); }
+    .mvv-grid { display: grid; gap: 30px; }
+    .mvv-card {
+      background: var(--white); border-radius: var(--radius-20);
+      padding: 40px 36px; box-shadow: var(--shadow-3);
+      border-block-end: 3px solid transparent;
+      transition: var(--transition-1);
+    }
+    .mvv-card:hover { border-color: var(--majorelle-blue); transform: translateY(-6px); box-shadow: var(--shadow-4); }
+    .mvv-card .mvv-icon {
+      width: 60px; height: 60px; border-radius: var(--radius-10);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px; margin-bottom: 22px;
+    }
+    .mvv-card .h3 { font-size: var(--fs-4); margin-bottom: 14px; }
+    .mvv-card p { font-size: var(--fs-8); color: var(--cool-gray); line-height: 1.8; }
+
+    /* ---- TIMELINE ---- */
+    .timeline-section { background: var(--white); }
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before {
+      content: ""; position: absolute; left: 10px; top: 0; bottom: 0;
+      width: 2px; background: var(--gainsboro);
+    }
+    .timeline-item { position: relative; margin-bottom: 44px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute; left: -26px; top: 6px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--majorelle-blue);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 3px var(--majorelle-blue);
+    }
+    .timeline-year {
+      display: inline-block; background: var(--majorelle-blue);
+      color: var(--white); font-size: var(--fs-9); font-weight: var(--fw-700);
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .timeline-item .h3 { font-size: var(--fs-5); margin-bottom: 8px; }
+    .timeline-item p { font-size: var(--fs-8); color: var(--cool-gray); }
+
+    /* ---- STATS ---- */
+    .stats-section {
+      background: linear-gradient(135deg, var(--majorelle-blue) 0%, hsl(241,77%,73%) 100%);
+      color: var(--white); text-align: center;
+    }
+    .stats-grid { display: grid; gap: 30px; }
+    .stat-card { padding: 30px 20px; }
+    .stat-number { font-size: 4.5rem; font-weight: var(--fw-700); line-height: 1; margin-bottom: 10px; }
+    .stat-label { font-size: var(--fs-8); opacity: 0.85; }
+
+    /* ---- CTA ---- */
+    .about-cta {
+      background: var(--ghost-white); text-align: center; padding-block: var(--section-padding);
+    }
+    .about-cta .h2 { margin-bottom: 20px; }
+    .about-cta p { font-size: var(--fs-7); color: var(--cool-gray); max-width: 50ch; margin-inline: auto; margin-bottom: 36px; }
+    .about-cta .btn-group { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (min-width: 768px) {
+      .who-we-are .container { grid-template-columns: 1fr 1fr; align-items: start; }
+      .mvv-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .timeline { padding-left: 50px; }
+      .timeline::before { left: 20px; }
+      .timeline-dot { left: -36px; }
+    }
+    @media (min-width: 992px) {
+      .who-we-are .container { gap: 80px; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">GMI Tech</a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="wrapper">
+          <a href="#" class="logo">GMI</a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="services.html" class="navbar-link" data-nav-link>Services</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="about.html" class="navbar-link" data-nav-link>About us</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="portfolio.html" class="navbar-link" data-nav-link>Portfolio</a>
+          </li>
+            <li class="navbar-item"><a href="careers.html" class="navbar-link" data-nav-link>Careers</a></li>
+          
+
+          <li class="navbar-item">
+            <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+ 
+   <a href="https://wa.me/919036717885" class="lets-talk-nav">
+  Let's Talk
+</a>
+
+<style>
+  .simple-talk-link {
+    /* Bold and Blue by default */
+    font-weight: 700;
+    color: var(--majorelle-blue); /* Uses your GMI Tech blue */
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: color 0.3s ease; /* Smooth color change */
+    display: inline-block;
+  }
+
+  .simple-talk-link:hover {
+    /* Becomes Yellow on cursor hover */
+    color: #ffcc00; /* Professional yellow/mustard color */
+  }
+</style>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- PAGE HERO -->
+      <section class="page-hero" aria-label="about hero">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">About GMI Tech</p>
+          <h1 class="h1">Engineering Digital <span class="has-before">Excellence</span></h1>
+          <p class="hero-desc">Your trusted technology partner for scalable, secure, and high-performance digital solutions.</p>
+        </div>
+      </section>
+
+      <!-- WHO WE ARE -->
+      <section class="section who-we-are" aria-label="who we are">
+        <div class="container">
+          <div class="content-block">
+            <p class="section-subtitle has-before">Who We Are</p>
+            <h2 class="h2 section-title">Precision-Built <span class="has-before">Digital Solutions</span></h2>
+            <p>GMI Tech is a full-service technology company dedicated to empowering startups and small-to-medium enterprises with world-class digital infrastructure. We specialize in building modern, secure, and scalable software systems that drive measurable business growth.</p>
+            <p>From custom web and mobile applications to AI-powered automation and enterprise-grade security, we deliver comprehensive solutions designed for performance at scale. Our approach combines clean architecture, intuitive design, and rigorous testing to ensure every product we ship meets the highest standards.</p>
+            <p>We serve as a complete digital transformation partner — handling everything from initial strategy and design to development, deployment, and ongoing optimization.</p>
+            <div class="founder-note">
+              <div class="founder-icon">
+                <ion-icon name="person" aria-hidden="true"></ion-icon>
+              </div>
+              <div class="founder-text">
+                <strong>Founded by S Mohammed Ruhan</strong>
+                <span>Software Engineer at Betakhais.com &amp; Founder, GMI Tech — Ballari &amp; Bangalore</span>
+              </div>
+            </div>
+          </div>
+          <div class="visual-grid">
+            <div class="visual-card">
+              <ion-icon name="rocket-sharp" aria-hidden="true"></ion-icon>
+              <span class="vc-label">Fast Delivery</span>
+              <span class="vc-sub">Agile & On-Time</span>
+            </div>
+            <div class="visual-card alt">
+              <ion-icon name="shield-checkmark-sharp" aria-hidden="true"></ion-icon>
+              <span class="vc-label">Secure Systems</span>
+              <span class="vc-sub">Enterprise Grade</span>
+            </div>
+            <div class="visual-card accent">
+              <ion-icon name="bulb-sharp" aria-hidden="true"></ion-icon>
+              <span class="vc-label">Innovation First</span>
+              <span class="vc-sub">AI-Powered</span>
+            </div>
+            <div class="visual-card dark">
+              <ion-icon name="people-sharp" aria-hidden="true"></ion-icon>
+              <span class="vc-label">Client Trust</span>
+              <span class="vc-sub">100% Satisfaction</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MISSION VISION VALUES -->
+      <section class="section mvv-section" aria-label="mission vision values">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Our Purpose</p>
+          <h2 class="h2 section-title text-center">What Drives <span class="has-before">Everything We Do</span></h2>
+          <ul class="mvv-grid">
+            <li>
+              <div class="mvv-card">
+                <div class="mvv-icon" style="background:hsla(241,77%,63%,0.12);">
+                  <ion-icon name="flag-sharp" style="color:hsl(241,77%,63%)" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="h3">Our Mission</h3>
+                <p>Empower startups and small businesses with secure, scalable digital systems that drive real growth and lasting impact.</p>
+              </div>
+            </li>
+            <li>
+              <div class="mvv-card">
+                <div class="mvv-icon" style="background:hsla(174,77%,50%,0.12);">
+                  <ion-icon name="eye-sharp" style="color:hsl(174,77%,40%)" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="h3">Our Vision</h3>
+                <p>To become the most trusted digital partner for emerging businesses, setting the standard for quality and innovation.</p>
+              </div>
+            </li>
+            <li>
+              <div class="mvv-card">
+                <div class="mvv-icon" style="background:hsla(47,100%,69%,0.2);">
+                  <ion-icon name="diamond-sharp" style="color:hsl(47,80%,45%)" aria-hidden="true"></ion-icon>
+                </div>
+                <h3 class="h3">Our Values</h3>
+                <p>Innovation, Quality, Security, and Transparency — the four pillars that guide every decision and deliverable.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="section timeline-section" aria-label="our journey">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Our Journey</p>
+          <h2 class="h2 section-title text-center">The <span class="has-before">Timeline</span></h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">2024</span>
+              <h3 class="h3">Started the Journey</h3>
+              <p>GMI Tech was founded with a vision to empower startups with quality digital solutions.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">2024</span>
+              <h3 class="h3">First 10 Clients</h3>
+              <p>Reached our first milestone of 10 satisfied clients across Bangalore.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">2025</span>
+              <h3 class="h3">Expansion to Ballari</h3>
+              <p>Extended operations to Ballari, broadening our reach and impact across Karnataka.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">2025</span>
+              <h3 class="h3">30+ Projects Milestone</h3>
+              <p>Completed over 30 projects with 100% client satisfaction rate.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="section stats-section" aria-label="stats">
+        <div class="container">
+          <ul class="stats-grid">
+            <li class="stat-card">
+              <p class="stat-number">2+</p>
+              <p class="stat-label">Years Experience</p>
+            </li>
+            <li class="stat-card">
+              <p class="stat-number">30+</p>
+              <p class="stat-label">Projects Completed</p>
+            </li>
+            <li class="stat-card">
+              <p class="stat-number">20+</p>
+              <p class="stat-label">Happy Clients</p>
+            </li>
+            <li class="stat-card">
+              <p class="stat-number">100%</p>
+              <p class="stat-label">Quality Assured</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="about-cta" aria-label="ready to work together">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Let's Build Together</p>
+          <h2 class="h2 section-title text-center">Ready to Work <span class="has-before">Together?</span></h2>
+          <p>Partner with GMI Tech and transform your business vision into a powerful digital reality.</p>
+          <div class="btn-group">
+            <a href="mailto:gmitech@zohomail.in" class="btn btn-primary has-before has-after">Get Started</a>
+            <a href="portfolio.html" class="btn btn-secondary has-before has-after">
+              <span class="span">View Portfolio</span>
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top section">
+
+        <!-- Brand Col -->
+        <div class="footer-brand-col">
+          <a href="./index.html" class="footer-logo">GMI <span>Tech</span></a>
+          <p class="footer-tagline">A leading software development company based in Ballari &amp; Bangalore, specializing in web development, mobile apps, AI automation, and custom business solutions.</p>
+          <div class="footer-social-row">
+            <a href="https://wa.me/919036717885" class="footer-social-btn whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+            <a href="mailto:gmitech@zohomail.in" class="footer-social-btn gmail" aria-label="Gmail">
+              <ion-icon name="mail-sharp"></ion-icon>
+            </a>
+            <a href="tel:+919036717885" class="footer-social-btn phone" aria-label="Phone">
+              <ion-icon name="call-sharp"></ion-icon>
+            </a>
+            <a href="https://linkedin.com" class="footer-social-btn linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a href="https://instagram.com" class="footer-social-btn instagram" aria-label="Instagram" target="_blank" rel="noopener">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </div>
+        </div>
+
+        <!-- Useful Links -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Useful Links</p></li>
+          <li><a href="./index.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Home</a></li>
+          <li><a href="./about.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> About Us</a></li>
+          <li><a href="./services.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Services</a></li>
+          <li><a href="./portfolio.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Portfolio</a></li>
+          <li><a href="./careers.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Careers</a></li>
+          
+          <li><a href="#contact" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Contact Us</a></li>
+          
+        </ul>
+
+        <!-- Resources -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Resources</p></li>
+          <li><a href="how-it-works.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> How it Works</a></li>
+          <li><a href="help-center.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Help Center</a></li>
+          <li><a href="privacy-policy.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Privacy Policy</a></li>
+          <li><a href="login.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Login</a></li>
+          <li><a href="blogs.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Blogs</a></li>
+          <li><a href="terms.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Terms & Conditions</a></li>
+          </ul>
+
+
+        <!-- Contact -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Contact</p></li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="call-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Phone</p>
+                <a href="tel:+919036717885" class="contact-value">+91 90367 17885</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="mail-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Email</p>
+                <a href="mailto:gmitech@zohomail.in" class="contact-value">gmitech@zohomail.in</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="location-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Ballari Office</p>
+                <span class="contact-value" style="font-size:1.3rem">Ballari, Karnataka, India</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="location-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Bangalore Office</p>
+                <span class="contact-value" style="font-size:1.3rem">Banshankari 1st Stage, Bangalore</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <p class="copyright">&copy; 2026 GMI Tech — All Rights Reserved.</p>
+          <p class="built-with">Built with <span>&#10084;</span> by GMI Tech Ballari</p>
+        </div>
+        <!-- <ul class="footer-bottom-list">
+          <li><a href="#" class="footer-bottom-link">Terms &amp; Conditions</a></li>
+          <li><a href="#" class="footer-bottom-link">Privacy Policy</a></li>
+          <li><a href="login.html" class="footer-bottom-link">Login / Signup</a></li>
+        </ul> -->
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+  <a href="#top" class="back-top-btn has-after" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <script src="./assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

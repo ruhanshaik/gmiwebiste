@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | GMI Tech — Scalable Digital Products | Ballari & Bangalore</title>
+  <meta name="title" content="Portfolio | GMI Tech — Scalable Digital Products | Ballari & Bangalore" />
+  <meta name="description" content="Explore GMI Tech's portfolio of enterprise software, CRM, SaaS platforms, mobile apps, web apps, school management, hospital, restaurant, and digital marketing projects.">
+  <meta name="keywords" content="GMI Tech Portfolio, Software Projects Ballari, Web Development Bangalore, CRM Development, SaaS Platform, School Management Software, Hospital Software, Restaurant POS, GMI Tech">
+  <meta name="author" content="S Mohammed Ruhan - Founder, GMI Tech" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gmitech.in/portfolio.html" />
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .page-hero {
+      padding-block-start: calc(var(--section-padding) + 80px);
+      padding-block-end: var(--section-padding);
+      background: linear-gradient(135deg, var(--ghost-white) 60%, hsl(241,77%,95%) 100%);
+      text-align: center;
+    }
+    .page-hero .h1 { font-size: var(--fs-1); margin-bottom: 20px; }
+    .page-hero .hero-desc { font-size: var(--fs-7); color: var(--cool-gray); max-width: 55ch; margin-inline: auto; }
+
+    /* FILTER */
+    .portfolio-section { background: var(--ghost-white); }
+    .filter-list {
+      max-width: 95%; margin-inline: auto;
+      display: flex; flex-wrap: wrap;
+      justify-content: center; align-items: center;
+      gap: 10px; margin-block-end: 60px;
+    }
+    .filter-btn {
+      color: var(--cool-gray); font-size: var(--fs-9); font-weight: var(--fw-500);
+      padding: 10px 20px; border-radius: var(--radius-8); transition: var(--transition-1);
+      cursor: pointer; background: none; border: none; font-family: inherit;
+    }
+    .filter-btn:hover { color: var(--raisin-black-1); }
+    .filter-btn.active {
+      background-color: var(--white); color: var(--raisin-black-1); box-shadow: var(--shadow-4);
+    }
+
+    /* PORTFOLIO GRID */
+    .portfolio-grid { display: grid; gap: 30px; }
+    .portfolio-card {
+      background: var(--white); border-radius: var(--radius-20);
+      overflow: hidden; box-shadow: var(--shadow-3);
+      transition: var(--transition-2);
+      display: flex; flex-direction: column;
+    }
+    .portfolio-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-4); }
+    .portfolio-card-header {
+      padding: 50px 30px 40px;
+      display: flex; flex-direction: column; align-items: flex-start;
+      position: relative; overflow: hidden;
+    }
+    .portfolio-card-header::after {
+      content: ""; position: absolute; top: -30px; right: -30px;
+      width: 120px; height: 120px;
+      background: rgba(255,255,255,0.15); border-radius: 50%;
+    }
+    .portfolio-card-header .card-3d-icon {
+      width: 72px; height: 72px; border-radius: var(--radius-15);
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 38px; color: var(--white);
+      margin-bottom: 20px; position: relative; z-index: 1;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .portfolio-card-header .card-category {
+      font-size: var(--fs-9); font-weight: var(--fw-700);
+      color: rgba(255,255,255,0.8); text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .portfolio-card-header .h3 { color: var(--white); font-size: var(--fs-5); line-height: 1.3; position: relative; z-index: 1; }
+    .portfolio-card-body { padding: 28px 30px; flex-grow: 1; display: flex; flex-direction: column; gap: 16px; }
+    .portfolio-card-body p { font-size: var(--fs-8); color: var(--cool-gray); line-height: 1.8; flex-grow: 1; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tech-tag {
+      background: var(--ghost-white); color: var(--raisin-black-1);
+      font-size: 1.2rem; font-weight: var(--fw-700);
+      padding: 5px 12px; border-radius: 20px;
+    }
+    .card-tagline { font-style: italic; color: var(--majorelle-blue); font-size: var(--fs-9); font-weight: var(--fw-500); }
+    .portfolio-card-footer {
+      padding: 20px 30px; border-top: 1px solid var(--gainsboro);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .view-btn {
+      color: var(--majorelle-blue); font-size: var(--fs-9); font-weight: var(--fw-700);
+      display: flex; align-items: center; gap: 8px; transition: var(--transition-1);
+    }
+    .view-btn:hover { color: var(--raisin-black-1); }
+    .view-btn ion-icon { font-size: 18px; }
+
+    /* CTA */
+    .portfolio-cta {
+      background: var(--raisin-black-1); text-align: center;
+      padding-block: var(--section-padding);
+    }
+    .portfolio-cta .h2 { color: var(--white); margin-bottom: 16px; }
+    .portfolio-cta p { color: var(--cool-gray); font-size: var(--fs-7); max-width: 50ch; margin-inline: auto; margin-bottom: 36px; }
+
+    @media (min-width: 768px) {
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1200px) {
+      .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body id="top">
+
+   <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">GMI Tech</a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="wrapper">
+          <a href="#" class="logo">GMI</a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="services.html" class="navbar-link" data-nav-link>Services</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="about.html" class="navbar-link" data-nav-link>About us</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="portfolio.html" class="navbar-link" data-nav-link>Portfolio</a>
+          </li>
+            <li class="navbar-item"><a href="careers.html" class="navbar-link" data-nav-link>Careers</a></li>
+          
+
+          <li class="navbar-item">
+            <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+ 
+   <a href="https://wa.me/919036717885" class="lets-talk-nav">
+  Let's Talk
+</a>
+
+<style>
+  .simple-talk-link {
+    /* Bold and Blue by default */
+    font-weight: 700;
+    color: var(--majorelle-blue); /* Uses your GMI Tech blue */
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: color 0.3s ease; /* Smooth color change */
+    display: inline-block;
+  }
+
+  .simple-talk-link:hover {
+    /* Becomes Yellow on cursor hover */
+    color: #ffcc00; /* Professional yellow/mustard color */
+  }
+</style>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+  <main>
+    <article>
+
+      <!-- PAGE HERO -->
+      <section class="page-hero" aria-label="portfolio hero">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Our Portfolio</p>
+          <h1 class="h1">Building Scalable Digital Products <span class="has-before">That Drive Growth</span></h1>
+          <p class="hero-desc">From enterprise software to mobile apps — real solutions for real businesses.</p>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section class="section portfolio-section" id="portfolio" aria-label="portfolio">
+        <div class="container">
+
+          <ul class="filter-list">
+            <li><button class="filter-btn active">All</button></li>
+            <li><button class="filter-btn">Enterprise Software</button></li>
+            <li><button class="filter-btn">CRM</button></li>
+            <li><button class="filter-btn">SaaS</button></li>
+            <li><button class="filter-btn">Mobile Apps</button></li>
+            <li><button class="filter-btn">Web Apps</button></li>
+            <li><button class="filter-btn">Digital Marketing</button></li>
+          </ul>
+
+          <ul class="portfolio-grid">
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(241,77%,53%),hsl(241,77%,73%))">
+                  <div class="card-3d-icon"><ion-icon name="business-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">Enterprise Software</span>
+                  <h3 class="h3">Enterprise Software Solutions</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>Custom Business Software Development — Tailored software systems that streamline operations, automate workflows, and improve business efficiency.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">React</span></li>
+                    <li><span class="tech-tag">Node.js</span></li>
+                    <li><span class="tech-tag">PostgreSQL</span></li>
+                    <li><span class="tech-tag">AWS</span></li>
+                  </ul>
+                  <p class="card-tagline">Built for performance. Engineered for scale.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(174,77%,35%),hsl(174,77%,55%))">
+                  <div class="card-3d-icon"><ion-icon name="people-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">CRM</span>
+                  <h3 class="h3">CRM Development</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>Smart Customer Relationship Management Systems — Powerful CRM platforms that help companies manage leads, sales pipelines, and customer interactions efficiently.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">React</span></li>
+                    <li><span class="tech-tag">TypeScript</span></li>
+                    <li><span class="tech-tag">Firebase</span></li>
+                    <li><span class="tech-tag">Tailwind</span></li>
+                  </ul>
+                  <p class="card-tagline">Turn data into decisions.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(267,76%,47%),hsl(267,76%,67%))">
+                  <div class="card-3d-icon"><ion-icon name="cloud-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">SaaS</span>
+                  <h3 class="h3">SaaS Platforms</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>Subscription-Based Cloud Software — Secure, scalable SaaS products ready for global deployment with robust multi-tenant architecture.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">Next.js</span></li>
+                    <li><span class="tech-tag">Stripe</span></li>
+                    <li><span class="tech-tag">AWS</span></li>
+                    <li><span class="tech-tag">PostgreSQL</span></li>
+                  </ul>
+                  <p class="card-tagline">Built once. Scaled infinitely.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(17,100%,55%),hsl(17,100%,72%))">
+                  <div class="card-3d-icon"><ion-icon name="phone-portrait-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">Mobile Apps</span>
+                  <h3 class="h3">Mobile Application Development</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>Android &amp; iOS Apps — High-performance mobile apps with modern UI/UX that deliver seamless experiences across all devices.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">React Native</span></li>
+                    <li><span class="tech-tag">Flutter</span></li>
+                    <li><span class="tech-tag">Firebase</span></li>
+                    <li><span class="tech-tag">REST APIs</span></li>
+                  </ul>
+                  <p class="card-tagline">Seamless performance across devices.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(210,100%,43%),hsl(210,100%,63%))">
+                  <div class="card-3d-icon"><ion-icon name="desktop-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">Web Apps</span>
+                  <h3 class="h3">Web Application Development</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>Fast. Secure. Responsive. Modern web applications optimized for speed, SEO, and conversion — built with cutting-edge technologies.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">React</span></li>
+                    <li><span class="tech-tag">Tailwind CSS</span></li>
+                    <li><span class="tech-tag">Node.js</span></li>
+                    <li><span class="tech-tag">Vercel</span></li>
+                  </ul>
+                  <p class="card-tagline">Optimized for speed and conversion.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(343,98%,48%),hsl(343,98%,65%))">
+                  <div class="card-3d-icon"><ion-icon name="school-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">School Management</span>
+                  <h3 class="h3">School Management System</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>Complete digital solution for schools — admissions, attendance, fees, exams, results, and parent communication in one platform.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">React</span></li>
+                    <li><span class="tech-tag">Node.js</span></li>
+                    <li><span class="tech-tag">MySQL</span></li>
+                    <li><span class="tech-tag">SMS API</span></li>
+                  </ul>
+                  <p class="card-tagline">Digitizing education, one school at a time.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(157,89%,30%),hsl(157,89%,50%))">
+                  <div class="card-3d-icon"><ion-icon name="medical-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">Hospital Software</span>
+                  <h3 class="h3">Hospital Management System</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>End-to-end hospital management — OPD, IPD, pharmacy, lab, billing, and patient records integrated seamlessly for modern healthcare.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">React</span></li>
+                    <li><span class="tech-tag">Node.js</span></li>
+                    <li><span class="tech-tag">PostgreSQL</span></li>
+                    <li><span class="tech-tag">HIPAA</span></li>
+                  </ul>
+                  <p class="card-tagline">Healthcare digitized. Lives simplified.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(52,98%,40%),hsl(52,98%,58%))">
+                  <div class="card-3d-icon" style="color:var(--raisin-black-1)"><ion-icon name="flask-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category" style="color:rgba(0,0,0,0.65)">Diagnostic Lab</span>
+                  <h3 class="h3" style="color:var(--raisin-black-1)">Diagnostic Lab Software</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>Diagnostic lab management with test booking, report generation, result delivery via WhatsApp/SMS, and billing automation.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">React</span></li>
+                    <li><span class="tech-tag">Node.js</span></li>
+                    <li><span class="tech-tag">PDF Gen</span></li>
+                    <li><span class="tech-tag">WhatsApp API</span></li>
+                  </ul>
+                  <p class="card-tagline">Reports delivered in minutes.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(203,89%,38%),hsl(203,89%,58%))">
+                  <div class="card-3d-icon"><ion-icon name="storefront-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">Retail & E-Commerce</span>
+                  <h3 class="h3">E-Commerce & Retail Solutions</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>Full-featured e-commerce stores, medical stores, and general store management — inventory, billing, GST reports, and online ordering.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">Next.js</span></li>
+                    <li><span class="tech-tag">Razorpay</span></li>
+                    <li><span class="tech-tag">MongoDB</span></li>
+                    <li><span class="tech-tag">GST API</span></li>
+                  </ul>
+                  <p class="card-tagline">Sell more. Manage smarter.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(25,90%,45%),hsl(25,90%,62%))">
+                  <div class="card-3d-icon"><ion-icon name="restaurant-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">Restaurant & Hotels</span>
+                  <h3 class="h3">Restaurant & Hotel Management</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>POS, table management, online ordering, kitchen display system, and hotel booking management for restaurants and hotels.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">React</span></li>
+                    <li><span class="tech-tag">Node.js</span></li>
+                    <li><span class="tech-tag">Socket.io</span></li>
+                    <li><span class="tech-tag">Razorpay</span></li>
+                  </ul>
+                  <p class="card-tagline">From order to plate, fully automated.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(290,70%,40%),hsl(290,70%,60%))">
+                  <div class="card-3d-icon"><ion-icon name="receipt-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">Billing Software</span>
+                  <h3 class="h3">Billing & Invoice Software</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>GST-compliant billing and invoicing software for any business — fast invoice generation, payment tracking, and financial reports.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">React</span></li>
+                    <li><span class="tech-tag">Node.js</span></li>
+                    <li><span class="tech-tag">PDF Gen</span></li>
+                    <li><span class="tech-tag">GST API</span></li>
+                  </ul>
+                  <p class="card-tagline">Invoice in seconds. Get paid faster.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="portfolio-card">
+                <div class="portfolio-card-header" style="background:linear-gradient(135deg,hsl(157,89%,30%),hsl(210,100%,48%))">
+                  <div class="card-3d-icon"><ion-icon name="megaphone-sharp" aria-hidden="true"></ion-icon></div>
+                  <span class="card-category">Digital Marketing</span>
+                  <h3 class="h3">Digital Marketing Solutions</h3>
+                </div>
+                <div class="portfolio-card-body">
+                  <p>Growth-Driven Marketing Strategies — SEO, Google Ads, social media management, and analytics-backed campaigns for measurable growth.</p>
+                  <ul class="tag-list">
+                    <li><span class="tech-tag">Google Ads</span></li>
+                    <li><span class="tech-tag">SEO Tools</span></li>
+                    <li><span class="tech-tag">Analytics</span></li>
+                    <li><span class="tech-tag">Meta Ads</span></li>
+                  </ul>
+                  <p class="card-tagline">Data-backed marketing for measurable growth.</p>
+                </div>
+                <div class="portfolio-card-footer">
+                  <a href="mailto:gmitech@zohomail.in" class="view-btn">View Project <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon></a>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="portfolio-cta" aria-label="start your project">
+        <div class="container">
+          <p class="section-subtitle has-before text-center" style="color:var(--cool-gray)">Let's Build</p>
+          <h2 class="h2 section-title text-center">We don't just build software.<br>We build digital <span class="has-before">ecosystems</span>.</h2>
+          <p>Power your business forward with a custom digital solution from GMI Tech.</p>
+          <a href="mailto:gmitech@zohomail.in" class="btn btn-primary has-before has-after" style="margin-inline:auto">Start Your Project</a>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top section">
+
+        <!-- Brand Col -->
+        <div class="footer-brand-col">
+          <a href="./index.html" class="footer-logo">GMI <span>Tech</span></a>
+          <p class="footer-tagline">A leading software development company based in Ballari &amp; Bangalore, specializing in web development, mobile apps, AI automation, and custom business solutions.</p>
+          <div class="footer-social-row">
+            <a href="https://wa.me/919036717885" class="footer-social-btn whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+            <a href="mailto:gmitech@zohomail.in" class="footer-social-btn gmail" aria-label="Gmail">
+              <ion-icon name="mail-sharp"></ion-icon>
+            </a>
+            <a href="tel:+919036717885" class="footer-social-btn phone" aria-label="Phone">
+              <ion-icon name="call-sharp"></ion-icon>
+            </a>
+            <a href="https://linkedin.com" class="footer-social-btn linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a href="https://instagram.com" class="footer-social-btn instagram" aria-label="Instagram" target="_blank" rel="noopener">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </div>
+        </div>
+
+        <!-- Useful Links -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Useful Links</p></li>
+          <li><a href="./index.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Home</a></li>
+          <li><a href="./about.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> About Us</a></li>
+          <li><a href="./services.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Services</a></li>
+          <li><a href="./portfolio.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Portfolio</a></li>
+          <li><a href="./careers.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Careers</a></li>
+          <li><a href="./blogs.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Blogs</a></li>
+          <li><a href="#contact" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Contact Us</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Terms &amp; Services</a></li>
+        </ul>
+
+        <!-- Resources -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Resources</p></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> How it Works</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Help Center</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Partners</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Suggestions</a></li>
+          <li><a href="./blogs.html" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Blog</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Newsletters</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Create</a></li>
+          <li><a href="#" class="footer-link"><ion-icon name="chevron-forward-outline"></ion-icon> Explore</a></li>
+        </ul>
+
+        <!-- Contact -->
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Contact</p></li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="call-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Phone</p>
+                <a href="tel:+919036717885" class="contact-value">+91 90367 17885</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="mail-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Email</p>
+                <a href="mailto:gmitech@zohomail.in" class="contact-value">gmitech@zohomail.in</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="location-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Ballari Office</p>
+                <span class="contact-value" style="font-size:1.3rem">Ballari, Karnataka, India</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="contact-icon"><ion-icon name="location-sharp"></ion-icon></div>
+              <div>
+                <p class="contact-label">Bangalore Office</p>
+                <span class="contact-value" style="font-size:1.3rem">Banshankari 1st Stage, Bangalore</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <p class="copyright">&copy; 2026 GMI Tech — All Rights Reserved.</p>
+          <p class="built-with">Built with <span>&#10084;</span> by GMI Tech Ballari</p>
+        </div>
+        <ul class="footer-bottom-list">
+          <li><a href="#" class="footer-bottom-link">Terms &amp; Conditions</a></li>
+          <li><a href="#" class="footer-bottom-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-bottom-link">Login / Signup</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+  <a href="#top" class="back-top-btn has-after" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <script src="./assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
